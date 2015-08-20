@@ -112,93 +112,94 @@ class LaserWeaponArmory(Scene):
         guesses = 0
         cheat = 666
 
-        while (guess != code or quess != cheat) and guesses < 9:
+        while guess != cheat and guess != code and guesses < 9:
             print "BZZZZEDD!"
             guesses += 1
-            guess = raw_input("\n[keypad]> ")
+            guess = int(raw_input("\n[keypad]> "))
 
-        if guess == code:
-            print "\nThe container clicks ioen and the seal breaks, letting gas out."
+        if guess == cheat or guess == code:
+            print bcolors.YELLOW + "\nThe container clicks open and the seal breaks, letting gas out."
             print "You grab the neutron bomb and run as fast as you can to the"
-            print "bidge where you must place it in the right spot."
+            print "bidge where you must place it in the right spot." + bcolors.END
             return 'the_bridge'
+        
         else:
-            print "The lock buzzes on last time and then you hear a sickening"
+            print bcolors.YELLOW + "\nThe lock buzzes on last time and then you hear a sickening"
             print "melting sound as the mechanism is fused together."
             print "You decide to sit therem and finally the Gothons blow up the"
-            print "ship form their ship and you die."
+            print "ship form their ship and you die." + bcolors.END
             return 'death'
-
 
 class TheBridge(Scene):
 
     def enter(self):
-        print "You burst onto the Bridge with the neutron destruct bomb"
+        print bcolors.BLUE + "\nYou burst onto the Bridge with the neutron destruct bomb"
         print "under your arm and surprise 5 Gothons who are trying to"
         print "take control of the ship. Each of them has an even uglier"
         print "clown costume than the last. They haven't pulled their"
         print "weapons out yet, as they see the active bomb under your"
-        print "arm and don't want to set it off."
+        print "arm and don't want to set it off." + bcolors.END
 
-        action = raw_input("> ")
+        action = raw_input("\n> ")
 
         if action == "throw the bomb":
-            print "In a panic you throw the bomb at the group of Gothons"
+            print bcolors.YELLOW + "In a panic you throw the bomb at the group of Gothons"
             print "and make a leap for the door. Right as you drop it a"
             print "Gothon shoots you right in tha back killing you."
             print "As you die you see another Gothon frantically try to disarm"
             print "the bomb. You die knowing they will probably blow up when"
-            print "it goes off."
+            print "it goes off." + bcolors.END
             return 'death'
 
         elif action == "slowly place the bomb":
-            print "You point your blaster at the bomb under your arm"
+            print bcolors.YELLOW + "You point your blaster at the bomb under your arm"
             print "and the Gothons put their hands up and start to sweat."
             print "You inch backward to the door, open it and then carefully"
             print "place the bomb on the floor, pointing your blaster at it."
             print "You then jump back through the door, punch the close button"
             print "and blast the lock so the Gothons can't get out."
             print "Now that the bomb is placed you run to the escape pod to"
-            print "get off this tin can."
+            print "get off this tin can." + bcolors.END
             return 'escape_pod'
+        
         else:
-            print "DOES NOT COMPUTE!"
+            print bcolors.YELLOW + "\nDOES NOT COMPUTE!" + bcolors.END
             return "the_bridge"
 
 class EscapePod(Scene):
 
     def enter(self):
-        print "You rush through the ship desperately trying to make is to"
+        print bcolors.BLUE + "\nYou rush through the ship desperately trying to make is to"
         print "the escape pod before the whole shipe explodes. It seems like"
         print "hardly any Gothons are on the ship, so your run is clear of"
         print "interference. You get to the chamber with the escape pods, and"
         print "now need to pick one to take. Some of them could be damaged"
         print "but you don't have time to look. There's 5 pods, which one"
-        print "do you take?"
+        print "do you take?" + bcolors.END
 
         good_pod = randint(1,5)
-        guess = raw_input("[pod #]> ")
+        guess = raw_input("\n[pod #]> ")
 
         if int(guess) != good_pod:
-            print "You jump into pod %s and hit the eject button." % guess
-            print "The pod escapes out into the void of space, then"
+            print bcolors.YELLOW + "\nYou jump into pod %s and hit the eject button." % guess + bcolors.END
+            print bcolors.YELLOW + "The pod escapes out into the void of space, then"
             print "impodes as the hull rupters, crushing your body"
-            print "into jam jelly."
+            print "into jam jelly." + bcolors.END
             return 'death'
         else:
-            print "You jump into pod %s and hit the eject button." % guess
-            print "The pod easily slides out into space heading to"
+            print bcolors.YELLOW + "\nYou jump into pod %s and hit the eject button." % guess + bcolors.END
+            print bcolors.YELLOW + "The pod easily slides out into space heading to"
             print "the planet below. As it flies to the planet, you look"
             print "back and see your ship implode then explode like a"
             print "bright star, taking out the Gothon ship at the same"
-            print "time. You won!"
+            print "time. You won!" + bcolors.END
 
             return 'finished'
 
 class Finished(Scene):
     
     def enter(self):
-        print "You won! Great job!"
+        print bcolors.GREEN + "\nYou won! Great job!" + bcolors.END
         return 'finished'
 
 class Map(object):
