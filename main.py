@@ -33,10 +33,10 @@ class Engine(object):
 
 class Death(Scene):
     quips = [
-        "You died. You kinda suck at his.",
-        "Your mom would be proud... if she were smarter.",
-        "Such a looser.",
-        "I have a small puppy that's better at this."
+        bcolors.RED + "\nYou died. You kinda suck at his.\n" + bcolors.END,
+        bcolors.RED + "\nYour mom would be proud... if she were smarter.\n" + bcolors.END,
+        bcolors.RED + "\nSuch a looser...\n" + bcolors.END,
+        bcolors.RED + "\nI have a small puppy that's better at this.\n" + bcolors.END
     ]
 
     def enter(self):
@@ -46,7 +46,7 @@ class Death(Scene):
 class CentralCorridor(Scene):
 
     def enter(self):
-        print bcolors.BLUE + "The Gothons of Planet Percal #25 have invaded your ship and destroy"
+        print bcolors.BLUE + "\nThe Gothons of Planet Percal #25 have invaded your ship and destroy"
         print "your entire crew. You are the last surviving member and your last"
         print "misson is to get the neutron destruct bomb from the Weapons Armory"
         print "put it in the bridge, and blow the ship up after getting into"
@@ -60,30 +60,30 @@ class CentralCorridor(Scene):
         action = raw_input("> ")
 
         if  "shoot" in action:
-            print "Quick in the draw you yank out your blaster abd fire it at the Gothon."
+            print bcolors.YELLOW + "\nQuick in the draw you yank out your blaster abd fire it at the Gothon."
             print "His clown costume is flowing and moving around his body, which throws"
             print "off your aim. Your laser hits his costume but misses him entirely. This"
             print "completely ruins his brand new costume his mother bought him, which"
             print "makes him fly into an insane rage and blast youre repeatedly in the face until"
-            print "you are dead. Then he eats you."
+            print "you are dead. Then he eats you." + bcolors.END
             return 'death'
 
         elif "dodge" in action:
-            print "Like a world class boxer you dodge, weave, slip and slide right"
+            print bcolors.YELLOW + "\nLike a world class boxer you dodge, weave, slip and slide right"
             print "as the Gothon's blaster cranks a laser past your head."
             print "In the middle of your artful dodge your foot slips and you"
             print "bang your head on the metal wall and pass out."
             print "You wake up shortly after only to die as the Gothon stomps on"
-            print "your head abd eats you."
+            print "your head abd eats you." + bcolors.END
             return 'death'
 
         elif action == "tell a joke":
-            print "Lucky for you they made you learn Gothon insults in the academy."
+            print bcolors.YELLOW + "\nLucky for you they made you learn Gothon insults in the academy."
             print "You tell the one Gothon joke you know:"
             print "Lbhe zbgure vf fb sng, jura fur fvgf nebhaq gur ubhfr, fur fvgf nebhaq gur ubhfr."
             print "The Gothin stops, tries not to laugh, then busts out laughing and can't move."
             print "While he's laughing you run up and shoot him square in the head"
-            print "putting him down, then jump through the Weapon Armory door."
+            print "putting him down, then jump through the Weapon Armory door." + bcolors.END
             return 'laser_weapon_armory'
         
         elif action == "exit":
@@ -93,7 +93,7 @@ class CentralCorridor(Scene):
             exit(1)
 
         else:
-            print "DOES NOT COMPUTE!"
+            print bcolors.YELLOW + "\nDOES NOT COMPUTE!" + bcolors.END
             return 'central_corridor'
 
 class LaserWeaponArmory(Scene):
