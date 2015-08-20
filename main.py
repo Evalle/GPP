@@ -46,12 +46,13 @@ class Death(Scene):
 class CentralCorridor(Scene):
 
     def enter(self):
-        print bcolors.BLUE + "\nThe Gothons of Planet Percal #25 have invaded your ship and destroy"
+        print bcolors.GREEN + "\n The Gothons of Planet Percal #26" + bcolors.END 
+        print bcolors.BLUE + "\nThe Gothons of Planet Percal #26 have invaded your ship and destroy"
         print "your entire crew. You are the last surviving member and your last"
         print "misson is to get the neutron destruct bomb from the Weapons Armory"
         print "put it in the bridge, and blow the ship up after getting into"
         print "escape pod."
-        print "\n"
+        print ""
         print "You're running down the central corridor to the Weapons Armory when"
         print "a Gothon jumps out, red scaly skin, dark grimy teeth, and evil clow"
         print "flowing around his hate filled body. He's blocking the door to the"
@@ -99,24 +100,25 @@ class CentralCorridor(Scene):
 class LaserWeaponArmory(Scene):
 
     def enter(self):
-        print "You do a drive roll into the Weapon Armory, crouch and scan the room"
+        print bcolors.BLUE + "\nYou do a drive roll into the Weapon Armory, crouch and scan the room"
         print "for more Gothons that might be hiding. It's dead quiet, too quiet."
         print "You stand up and run to the far side of the room and find the"
         print "nutron bomb in its container. There's a keypad lock on the box"
         print "and you need the code to get the bomb out. If you get the code"
         print "wrong 10 times then the lock closes forever and you can't"
-        print "get the bomb. The code is 3 digits."
+        print "get the bomb. The code is 3 digits." + bcolors.END
         code = "%d%d%d" % (randint(1,9), randint(1,9), randint(1,9))
-        guess = raw_input("[keypad]>")
+        guess = raw_input("\n[keypad]> ")
         guesses = 0
+        cheat = 666
 
-        while guess != code and guesses < 10:
+        while (guess != code or quess != cheat) and guesses < 9:
             print "BZZZZEDD!"
-            guesses =+ 1
-            guess = raw_input("[keypad]>")
+            guesses += 1
+            guess = raw_input("\n[keypad]> ")
 
         if guess == code:
-            print "The container clicks ioen and the seal breaks, letting gas out."
+            print "\nThe container clicks ioen and the seal breaks, letting gas out."
             print "You grab the neutron bomb and run as fast as you can to the"
             print "bidge where you must place it in the right spot."
             return 'the_bridge'
