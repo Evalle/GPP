@@ -112,7 +112,7 @@ class LaserWeaponArmory(Scene):
         guesses = 0
         cheat = 666
 
-        while guess != cheat and guess != code and guesses < 9:
+        while (guess != cheat or guess != code) and guesses < 9:
             print "BZZZZEDD!"
             guesses += 1
             guess = int(raw_input("\n[keypad]> "))
