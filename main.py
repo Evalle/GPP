@@ -187,10 +187,10 @@ class EscapePod(Scene):
         print "do you take?" + bcolors.END
 
         good_pod = randint(1,5)
-        guess = raw_input("\n[pod #]> ")
-        cheat_pod = str(1)
+        guess = int(raw_input("\n[pod #]> "))
+        cheat_pod = int(1)
 
-        if guess != good_pod or guess != cheat_pod:
+        if guess != good_pod and guess != cheat_pod:
             print bcolors.YELLOW + "\nYou jump into pod %s and hit the eject button." % guess + bcolors.END
             print bcolors.YELLOW + "The pod escapes out into the void of space, then"
             print "impodes as the hull rupters, crushing your body"
@@ -212,7 +212,7 @@ class EscapePod(Scene):
 class Finished(Scene):
 
     def enter(self):
-        print bcolors.GREEN + "\nYou won! Great job!" + bcolors.END
+        print bcolors.GREEN + "\nYou won! Great job!\n" + bcolors.END
         return 'finished'
 
 class Map(object):
