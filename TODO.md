@@ -1,6 +1,6 @@
 **TODO**
 
-- [ ] Add some colors
-- [ ] Add spaces
+- [X] Add some colors
+- [X] Add spaces
 - [ ] Improve descriptions
-- [ ] Add cheat codes
+- [X] Add cheat codes
