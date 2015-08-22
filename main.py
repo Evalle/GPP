@@ -93,7 +93,7 @@ class CentralCorridor(Scene):
             print "putting him down, then jump through the Weapon Armory door." + bcolors.END
             return 'laser_weapon_armory'
 
-        elif action == "exit" or guess == "quit":
+        elif action == "exit" or action == "quit":
             quit()
 
         else:
@@ -168,6 +168,9 @@ class TheBridge(Scene):
             print "get off this tin can." + bcolors.END
             return 'escape_pod'
 
+        elif action == "exit" or action == "quit":
+            quit()
+
         else:
             print bcolors.YELLOW + "\nDOES NOT COMPUTE!" + bcolors.END
             return "the_bridge"
@@ -192,6 +195,10 @@ class EscapePod(Scene):
             print "impodes as the hull rupters, crushing your body"
             print "into jam jelly." + bcolors.END
             return 'death'
+
+        elif guess == "exit" or guess == "quit":
+            quit()
+
         else:
             print bcolors.YELLOW + "\nYou jump into pod %s and hit the eject button." % guess + bcolors.END
             print bcolors.YELLOW + "The pod easily slides out into space heading to"
@@ -199,7 +206,6 @@ class EscapePod(Scene):
             print "back and see your ship implode then explode like a"
             print "bright star, taking out the Gothon ship at the same"
             print "time. You won!" + bcolors.END
-
             return 'finished'
 
 class Finished(Scene):
