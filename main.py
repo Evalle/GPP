@@ -110,12 +110,12 @@ class LaserWeaponArmory(Scene):
         code = "%d%d%d" % (randint(1,9), randint(1,9), randint(1,9))
         guess = raw_input("\n[keypad]> ")
         guesses = 0
-        cheat = 666
+        cheat = str(666)
 
-        while (guess != cheat or guess != code) and guesses < 9:
+        while (guess != cheat and guess != code) and guesses < 9:
             print "BZZZZEDD!"
             guesses += 1
-            guess = int(raw_input("\n[keypad]> "))
+            guess = raw_input("\n[keypad]> ")
 
         if guess == cheat or guess == code:
             print bcolors.YELLOW + "\nThe container clicks open and the seal breaks, letting gas out."

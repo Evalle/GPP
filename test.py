@@ -6,9 +6,11 @@ print code
 
 guess = raw_input("> ")
 guesses = 0
-cheat = 666
+cheat = str(666)
+print type(guess)
+print type(cheat)
 
-while guess != code and guesses < 9:
+while (guess != cheat and guess !=code) and guesses < 9:
     print 'False'
     guess = raw_input("> ")
     guesses += 1
