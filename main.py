@@ -149,7 +149,7 @@ class TheBridge(Scene):
         action = raw_input("\n> ")
 
         if action == "throw the bomb":
-            print bcolors.YELLOW + "In a panic you throw the bomb at the group of Gothons"
+            print bcolors.YELLOW + "\nIn a panic you throw the bomb at the group of Gothons"
             print "and make a leap for the door. Right as you drop it a"
             print "Gothon shoots you right in tha back killing you."
             print "As you die you see another Gothon frantically try to disarm"
@@ -158,7 +158,7 @@ class TheBridge(Scene):
             return 'death'
 
         elif action == "slowly place the bomb":
-            print bcolors.YELLOW + "You point your blaster at the bomb under your arm"
+            print bcolors.YELLOW + "\nYou point your blaster at the bomb under your arm"
             print "and the Gothons put their hands up and start to sweat."
             print "You inch backward to the door, open it and then carefully"
             print "place the bomb on the floor, pointing your blaster at it."
@@ -189,7 +189,7 @@ class EscapePod(Scene):
         good_pod = randint(1,5)
         guess = raw_input("\n[pod #]> ")
 
-        if int(guess) != good_pod:
+        if guess != good_pod:
             print bcolors.YELLOW + "\nYou jump into pod %s and hit the eject button." % guess + bcolors.END
             print bcolors.YELLOW + "The pod escapes out into the void of space, then"
             print "impodes as the hull rupters, crushing your body"
