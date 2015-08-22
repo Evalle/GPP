@@ -2,6 +2,12 @@
 from sys import exit
 from random import randint
 
+def quit():
+    print ''
+    print bcolors.GREEN + 'BYE!' + bcolors.END
+    print ''
+    exit(1)
+
 class bcolors:
     BLUE = '\033[94m'
     GREEN = '\033[92m'
@@ -46,7 +52,7 @@ class Death(Scene):
 class CentralCorridor(Scene):
 
     def enter(self):
-        print bcolors.GREEN + "\n The Gothons of Planet Percal #26" + bcolors.END 
+        print bcolors.GREEN + "\n The Gothons of Planet Percal #26" + bcolors.END
         print bcolors.BLUE + "\nThe Gothons of Planet Percal #26 have invaded your ship and destroy"
         print "your entire crew. You are the last surviving member and your last"
         print "misson is to get the neutron destruct bomb from the Weapons Armory"
@@ -86,12 +92,9 @@ class CentralCorridor(Scene):
             print "While he's laughing you run up and shoot him square in the head"
             print "putting him down, then jump through the Weapon Armory door." + bcolors.END
             return 'laser_weapon_armory'
-        
-        elif action == "exit":
-            print ''
-            print bcolors.GREEN + 'BYE!' + bcolors.END 
-            print ''
-            exit(1)
+
+        elif action == "exit" or guess == "quit":
+            quit()
 
         else:
             print bcolors.YELLOW + "\nDOES NOT COMPUTE!" + bcolors.END
@@ -122,7 +125,10 @@ class LaserWeaponArmory(Scene):
             print "You grab the neutron bomb and run as fast as you can to the"
             print "bidge where you must place it in the right spot." + bcolors.END
             return 'the_bridge'
-        
+
+        elif guess == 'exit' or guess == 'quit':
+            quit()
+
         else:
             print bcolors.YELLOW + "\nThe lock buzzes on last time and then you hear a sickening"
             print "melting sound as the mechanism is fused together."
@@ -161,7 +167,7 @@ class TheBridge(Scene):
             print "Now that the bomb is placed you run to the escape pod to"
             print "get off this tin can." + bcolors.END
             return 'escape_pod'
-        
+
         else:
             print bcolors.YELLOW + "\nDOES NOT COMPUTE!" + bcolors.END
             return "the_bridge"
@@ -197,15 +203,15 @@ class EscapePod(Scene):
             return 'finished'
 
 class Finished(Scene):
-    
+
     def enter(self):
         print bcolors.GREEN + "\nYou won! Great job!" + bcolors.END
         return 'finished'
 
 class Map(object):
-    
+
     scenes = {
-        'central_corridor': CentralCorridor(), 
+        'central_corridor': CentralCorridor(),
         'laser_weapon_armory': LaserWeaponArmory(),
         'the_bridge': TheBridge(),
         'escape_pod': EscapePod(),
