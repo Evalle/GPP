@@ -4,7 +4,7 @@ from random import randint
 
 def quit():
     print ''
-    print bcolors.GREEN + 'BYE!' + bcolors.END
+    print bcolors.GREEN + 'See you later!' + bcolors.END
     print ''
     exit(1)
 
